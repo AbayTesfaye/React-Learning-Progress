@@ -110,7 +110,7 @@ function Footer() {
 }
 function Pizza(props) {
   return (
-    <li className="pizza">
+    <li className={`pizza ${props.pizzaObject.soldOut ? "sold-out" : ""}`}>
       <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
       <div>
         <h3>Welcome to Pizza house</h3>
