@@ -1,33 +1,21 @@
-import "./App.css";
-import "./calculator";
-import profile from "./calculator";
+import Card from "./components/Card";
+import informations from "./information";
 
-function Card(props) {
+function createCard(information) {
   return (
-    <div className="Card">
-      <h1>{props.name}</h1>
-      <img src={props.img} alt="image" />
-      <p>{props.email}</p>
-      <p>{props.phone}</p>
-    </div>
+    <Card
+      img={information.imgURL}
+      name={information.name}
+      discription={information.discription}
+    />
   );
 }
+
 function App(props) {
   return (
-    <div className="container">
-      <h1 className="heading">My Contact</h1>
-      <Card
-        name={profile[0].name}
-        img="logo192.png"
-        email={profile[0].email}
-        phone={profile[0].phone}
-      />
-      <Card
-        name={profile[1].name}
-        img="logo192.png"
-        email={profile[1].email}
-        phone={profile[1].phone}
-      />
+    <div className="app">
+      <h1>EMOJI STORE</h1>
+      {informations.map(createCard)}
     </div>
   );
 }
