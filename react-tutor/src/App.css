@@ -1,29 +1,61 @@
-#root {
-  background: rgb(0, 255, 213);
-}
-.app {
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f0f4f8;
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Center content horizontally */
-}
-
-.cardContainer {
-  display: fl;
-  /* justify-content: space-between; */
-  flex-wrap: wrap; /* Allow cards to wrap to the next row if necessary */
-  gap: 20px; /* Add space between cards */
-  padding: 20px;
-  width: 100%; /* Ensure the container takes the full width */
-  max-width: 1200px; /* Optional: set a maximum width */
-}
-
-.cardContainer > div {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Set a width for each card */
+  height: 100vh;
+  margin: 0;
+}
+
+/* Form Container */
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+}
+
+/* Input Fields */
+input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* Submit Button */
+button {
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Optional: Responsive design */
+@media (max-width: 400px) {
+  form {
+    width: 90%;
+    padding: 20px;
+  }
 }
