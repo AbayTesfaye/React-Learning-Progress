@@ -11,13 +11,23 @@ function createCard(information) {
   );
 }
 
-function App(props) {
-  return (
-    <div className="app">
-      <h1>EMOJI STORE</h1>
-      {informations.map(createCard)}
-    </div>
-  );
+var isLoggedIn = false;
+
+function renderConditionaly() {
+  if (isLoggedIn) {
+    return <h1>Hello</h1>;
+  } else {
+    return (
+      <form action="">
+        <input placeholder="Username" />
+        <input type="password" placeholder="Password" />
+      </form>
+    );
+  }
+}
+
+function App() {
+  return <div className="app">{renderConditionaly()}</div>;
 }
 
 export default App;
