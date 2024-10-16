@@ -1,13 +1,12 @@
-import { useState } from "react";
-import Form from "./components/Form";
-
+import animals, { useAnimal } from "./information";
 function App() {
-  const [isRegister, setIsRegister] = useState(false);
-  return (
-    <div>
-      <Form isRegister={isRegister} setIsRegister={setIsRegister} />
-    </div>
-  );
+  const [cat, dog] = animals;
+  // console.log(cat);
+
+  const [animal, makeSound] = useAnimal(cat);
+  console.log(animal);
+  makeSound();
+  return <div></div>;
 }
 
 export default App;
