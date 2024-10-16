@@ -1,33 +1,27 @@
 import { useState } from "react";
-import animals, { useAnimal } from "./information";
+
 function App() {
-  const [headingText, setHeadingText] = useState("Abay");
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  function handleClick() {
-    console.log("clicked");
-    setHeadingText("Dani");
+  const [username, setUsername] = useState("");
+  const [headingText, setHeadingText] = useState("");
+  function handleOnChange(e) {
+    setUsername(e.target.value);
   }
 
-  function handleMouseOver() {
-    setIsMouseOver(true);
-  }
-
-  function handleMouseOut() {
-    setIsMouseOver(false);
+  function handleOnClick(event) {
+    setHeadingText(username);
+    event.preventDefault();
   }
   return (
-    <div>
-      <h1>{headingText}</h1>
-
-      <button
-        onClick={handleClick}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        style={{ backgroundColor: isMouseOver ? "red" : "blue" }}
-      >
-        Change
-      </button>
-    </div>
+    <form onSubmit={handleOnClick}>
+      <h1> Hello {headingText}</h1>
+      <input
+        onChange={handleOnChange}
+        type="text"
+        placeholder="Username"
+        value={username}
+      />
+      <button>Submit</button>
+    </form>
   );
 }
 
