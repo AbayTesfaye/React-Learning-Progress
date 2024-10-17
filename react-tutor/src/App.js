@@ -7,19 +7,19 @@ function App() {
   });
 
   function handleChange(e) {
-    const newValue = e.target.value;
-    const valueName = e.target.name;
-    if (valueName === "fName") {
-      setFullName({ fName: newValue });
-    } else if (valueName === "lName") {
-      setFullName({ lName: newValue });
-    }
+    const { name, value } = e.target;
 
     setFullName((preValue) => {
-      if (valueName === "fName") {
-        return { fName: newValue, lName: preValue.lName };
-      } else if (valueName === "lName") {
-        return { fName: preValue.fName, lName: newValue };
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: preValue.lName,
+        };
+      } else if (name === "lName") {
+        return {
+          fName: preValue.fName,
+          lName: value,
+        };
       }
     });
   }
