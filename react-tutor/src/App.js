@@ -1,45 +1,47 @@
 import { useState } from "react";
 import "./App.css";
 function App() {
-  const [fullName, setFullName] = useState({
+  const [contact, setContact] = useState({
     fName: "",
     lName: "",
+    email: "",
   });
 
   function handleChange(e) {
     const { name, value } = e.target;
 
-    setFullName((preValue) => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: preValue.lName,
-        };
-      } else if (name === "lName") {
-        return {
-          fName: preValue.fName,
-          lName: value,
-        };
-      }
+    setContact((preValue) => {
+      return {
+        ...preValue,
+        [name]: value,
+      };
     });
   }
 
   return (
     <form>
       <h1>
-        Hello {fullName.fName} {fullName.lName}
+        Hello {contact.fName} {contact.lName}
       </h1>
+      <p>{contact.email}</p>
       <input
         name="fName"
         onChange={handleChange}
         placeholder="First Name"
-        value={fullName.fName}
+        value={contact.fName}
       />
       <input
         name="lName"
         onChange={handleChange}
         placeholder="Last Name"
-        value={fullName.lName}
+        value={contact.lName}
+      />
+      <input
+        name="email"
+        type="email"
+        onChange={handleChange}
+        value={contact.email}
+        placeholder="Email"
       />
       <button>Submit</button>
     </form>
