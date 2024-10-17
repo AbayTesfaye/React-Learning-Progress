@@ -1,24 +1,45 @@
 import { useState } from "react";
-
+import "./App.css";
 function App() {
-  const [username, setUsername] = useState("");
-  const [headingText, setHeadingText] = useState("");
-  function handleOnChange(e) {
-    setUsername(e.target.value);
+  const [fullName, setFullName] = useState({
+    fName: "",
+    lName: "",
+  });
+
+  function handleChange(e) {
+    const newValue = e.target.value;
+    const valueName = e.target.name;
+    if (valueName === "fName") {
+      setFullName({ fName: newValue });
+    } else if (valueName === "lName") {
+      setFullName({ lName: newValue });
+    }
+
+    setFullName((preValue) => {
+      if (valueName === "fName") {
+        return { fName: newValue, lName: preValue.lName };
+      } else if (valueName === "lName") {
+        return { fName: preValue.fName, lName: newValue };
+      }
+    });
   }
 
-  function handleOnClick(event) {
-    setHeadingText(username);
-    event.preventDefault();
-  }
   return (
-    <form onSubmit={handleOnClick}>
-      <h1> Hello {headingText}</h1>
+    <form>
+      <h1>
+        Hello {fullName.fName} {fullName.lName}
+      </h1>
       <input
-        onChange={handleOnChange}
-        type="text"
-        placeholder="Username"
-        value={username}
+        name="fName"
+        onChange={handleChange}
+        placeholder="First Name"
+        value={fullName.fName}
+      />
+      <input
+        name="lName"
+        onChange={handleChange}
+        placeholder="Last Name"
+        value={fullName.lName}
       />
       <button>Submit</button>
     </form>
