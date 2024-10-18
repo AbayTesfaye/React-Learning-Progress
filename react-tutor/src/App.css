@@ -2,6 +2,8 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f4f7f6;
+  background-color: #878c00;
+  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
   display: flex;
   justify-content: center;
   align-items: center;

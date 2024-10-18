@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import Item from "./components/Item";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import Button from "@mui/material/Button";
+import { Zoom } from "@mui/material";
 
 function App(props) {
   const [todo, setTodo] = useState("");
@@ -31,7 +34,11 @@ function App(props) {
         onChange={handleTodo}
         value={todo}
       />
-      <button onClick={addItem}>Add Task</button>
+      <Zoom in={true}>
+        <button onClick={addItem}>
+          <AddCircleIcon />
+        </button>
+      </Zoom>
 
       <div className="todo-list">
         <ul>
