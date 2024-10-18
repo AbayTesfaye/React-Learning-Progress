@@ -1,7 +1,7 @@
-/* General page styling */
+/* App.css */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f7f6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,80 +9,93 @@ body {
   margin: 0;
 }
 
-/* Container styling */
 .container {
-  background-color: white;
-  border-radius: 10px;
+  background-color: #fff;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
   text-align: center;
 }
 
-/* Input field styling */
-input[type="text"] {
-  width: 70%;
+input {
+  width: 80%;
   padding: 10px;
+  margin-bottom: 15px;
   border: 2px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-/* Button styling */
+input:focus {
+  border-color: #007bff;
+}
+
 button {
-  padding: 10px 20px;
-  margin-left: 10px;
+  padding: 10px 15px;
   background-color: #007bff;
   color: white;
+  font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Button hover effect */
 button:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-/* To-do list container */
 .todo-list {
   margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 5px;
   text-align: left;
-  max-height: 200px;
-  overflow-y: auto;
 }
 
-/* Style individual to-do items */
-.todo-item {
-  background-color: #f9f9f9;
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f1f1f1;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
-  border-left: 4px solid #007bff;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
 }
 
-/* To-do text styling */
-.todo-text {
-  flex-grow: 1;
-  padding-right: 10px;
+li:hover {
+  background-color: #e9e9e9;
 }
 
-/* Delete button for to-do items */
-.delete-btn {
-  background-color: #ff4d4d;
-  border: none;
-  color: white;
+li button {
+  background-color: #dc3545;
   padding: 5px 10px;
-  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.delete-btn:hover {
-  background-color: #cc0000;
+li button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+li button:active {
+  transform: scale(0.95);
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #a1a1a1;
 }

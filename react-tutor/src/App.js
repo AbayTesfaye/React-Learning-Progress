@@ -4,33 +4,40 @@ import "./App.css";
 function App() {
   const [todo, setTodo] = useState("");
   const [items, setItems] = useState([]);
+
   function handleTodo(event) {
     const newValue = event.target.value;
     setTodo(newValue);
   }
 
   function addItem() {
-    setItems((preItem) => {
-      return [...preItem, todo];
-    });
-    setTodo("");
+    if (todo.trim() !== "") {
+      setItems((preItem) => {
+        return [...preItem, todo];
+      });
+      setTodo("");
+    }
   }
 
-  function deleteItems(){
-    items.filter(())
+  function deleteItem(index) {
+    setItems((preItems) => preItems.filter((item, i) => i !== index));
   }
 
   return (
     <div className="container">
-      <input placeholder="To do" onChange={handleTodo} value={todo} />
-      <button onClick={addItem}>Add</button>
+      <input
+        placeholder="Add a new task..."
+        onChange={handleTodo}
+        value={todo}
+      />
+      <button onClick={addItem}>Add Task</button>
 
       <div className="todo-list">
         <ul>
-          {items.map((item) => {
+          {items.map((item, index) => {
             return (
-              <li>
-                item <button onClick={deleteIems}>Delete</button>
+              <li key={index}>
+                {item} <button onClick={() => deleteItem(index)}>Delete</button>
               </li>
             );
           })}
