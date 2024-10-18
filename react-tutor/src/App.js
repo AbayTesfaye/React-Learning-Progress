@@ -1,50 +1,42 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
+
 function App() {
-  const [contact, setContact] = useState({
-    fName: "",
-    lName: "",
-    email: "",
-  });
+  const [todo, setTodo] = useState("");
+  const [items, setItems] = useState([]);
+  function handleTodo(event) {
+    const newValue = event.target.value;
+    setTodo(newValue);
+  }
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-
-    setContact((preValue) => {
-      return {
-        ...preValue,
-        [name]: value,
-      };
+  function addItem() {
+    setItems((preItem) => {
+      return [...preItem, todo];
     });
+    setTodo("");
+  }
+
+  function deleteItems(){
+    items.filter(())
   }
 
   return (
-    <form>
-      <h1>
-        Hello {contact.fName} {contact.lName}
-      </h1>
-      <p>{contact.email}</p>
-      <input
-        name="fName"
-        onChange={handleChange}
-        placeholder="First Name"
-        value={contact.fName}
-      />
-      <input
-        name="lName"
-        onChange={handleChange}
-        placeholder="Last Name"
-        value={contact.lName}
-      />
-      <input
-        name="email"
-        type="email"
-        onChange={handleChange}
-        value={contact.email}
-        placeholder="Email"
-      />
-      <button>Submit</button>
-    </form>
+    <div className="container">
+      <input placeholder="To do" onChange={handleTodo} value={todo} />
+      <button onClick={addItem}>Add</button>
+
+      <div className="todo-list">
+        <ul>
+          {items.map((item) => {
+            return (
+              <li>
+                item <button onClick={deleteIems}>Delete</button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 }
 

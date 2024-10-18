@@ -1,48 +1,88 @@
-form {
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
   display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container styling */
+.container {
+  background-color: white;
+  border-radius: 10px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
-}
-
-h1 {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
 }
 
-input {
+/* Input field styling */
+input[type="text"] {
+  width: 70%;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
   font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
+/* Button styling */
 button {
-  padding: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
 }
 
+/* Button hover effect */
 button:hover {
   background-color: #0056b3;
+}
+
+/* To-do list container */
+.todo-list {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Style individual to-do items */
+.todo-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 4px solid #007bff;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* To-do text styling */
+.todo-text {
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+/* Delete button for to-do items */
+.delete-btn {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
