@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
+import Item from "./components/Item";
 
-function App() {
+function App(props) {
   const [todo, setTodo] = useState("");
   const [items, setItems] = useState([]);
 
@@ -35,11 +36,7 @@ function App() {
       <div className="todo-list">
         <ul>
           {items.map((item, index) => {
-            return (
-              <li key={index}>
-                {item} <button onClick={() => deleteItem(index)}>Delete</button>
-              </li>
-            );
+            return <Item item={item} index={index} deleteItem={deleteItem} />;
           })}
         </ul>
       </div>
